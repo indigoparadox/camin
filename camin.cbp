@@ -31,9 +31,9 @@
 			</Target>
 			<Target title="Debug-Linux-SDL">
 				<Option platforms="Unix;" />
-				<Option output="../bin/Debug-Linux-SDL/camin" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug-Linux-SDL/camin" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option object_output="../obj/Debug-Linux-SDL/" />
+				<Option object_output="obj/Debug-Linux-SDL/" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
@@ -45,9 +45,9 @@
 				</Linker>
 			</Target>
 			<Target title="Debug-Linux-Allegro">
-				<Option output="../bin/Debug-Linux-Allegro/camin" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug-Linux-Allegro/camin" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option object_output="../obj/Debug-Linux-Allegro/" />
+				<Option object_output="obj/Debug-Linux-Allegro/" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
