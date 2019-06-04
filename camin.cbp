@@ -39,6 +39,8 @@
 				<Option createDefFile="1" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-DDEBUG" />
+					<Add option="-DUSE_SDL" />
 				</Compiler>
 				<Linker>
 					<Add directory="../libvcol/src" />
@@ -53,6 +55,8 @@
 				<Option createDefFile="1" />
 				<Compiler>
 					<Add option="-g" />
+					<Add option="-DUSE_ALLEGRO" />
+					<Add option="-DDEBUG" />
 				</Compiler>
 				<Linker>
 					<Add directory="../libvcol/src" />
