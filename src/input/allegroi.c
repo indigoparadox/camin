@@ -5,6 +5,8 @@
 #include <allegro.h>
 #include <libvcol.h>
 
+#include "allegro/keyboard.h"
+
 //#include "../client.h"
 //#include "../server.h"
 //#include "../proto.h"
@@ -41,7 +43,7 @@ void input_get_event( struct INPUT* input ) {
       key_pressed = readkey();
       input->type = INPUT_TYPE_KEY;
       input->character = key_pressed & 0xff;
-      input->scancode = (key_pressed & 0xff00) >> 8;
+      input->scancode = input_native_to_scancode( (key_pressed & 0xff00) >> 8 );
 #ifdef DEBUG_KEYS
       lg_debug( __FILE__, "Scancode: %d\n", input->scancode );
 #endif /* DEBUG_KEYS */
@@ -57,4 +59,67 @@ void input_clear_buffer( struct INPUT* input ) {
 }
 
 void input_shutdown( struct INPUT* input ) {
+}
+
+int input_scancode_to_native( enum INPUT_SCANCODE code ) {
+   switch( code ) {
+   case INPUT_SCANCODE_ESC:
+      return __allegro_KEY_ESC;
+
+   case INPUT_SCANCODE_BACKSPACE:
+      return __allegro_KEY_BACKSPACE;
+
+   case INPUT_SCANCODE_ENTER:
+      return __allegro_KEY_ENTER;
+
+   case INPUT_SCANCODE_TAB:
+      return __allegro_KEY_TAB;
+
+   case INPUT_SCANCODE_LEFT:
+      return __allegro_KEY_LEFT;
+
+   case INPUT_SCANCODE_RIGHT:
+      return __allegro_KEY_RIGHT;
+
+   case INPUT_SCANCODE_UP:
+      return __allegro_KEY_UP;
+
+   case INPUT_SCANCODE_DOWN:
+      return __allegro_KEY_DOWN;
+
+   case INPUT_SCANCODE_NULL:
+   default:
+      return 0;
+   }
+}
+
+enum INPUT_SCANCODE input_native_to_scancode( int code ) {
+   switch( code ) {
+   case __allegro_KEY_ESC:
+      return INPUT_SCANCODE_ESC;
+
+   case __allegro_KEY_BACKSPACE:
+      return INPUT_SCANCODE_BACKSPACE;
+
+   case __allegro_KEY_ENTER:
+      return INPUT_SCANCODE_ENTER;
+
+   case __allegro_KEY_TAB:
+      return INPUT_SCANCODE_TAB;
+
+   case __allegro_KEY_LEFT:
+      return INPUT_SCANCODE_LEFT;
+
+   case __allegro_KEY_RIGHT:
+      return INPUT_SCANCODE_RIGHT;
+
+   case __allegro_KEY_UP:
+      return INPUT_SCANCODE_UP;
+
+   case __allegro_KEY_DOWN:
+      return INPUT_SCANCODE_DOWN;
+
+   default:
+      return 0;
+   }
 }
