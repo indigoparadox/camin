@@ -14,7 +14,7 @@
 extern struct CLIENT* main_client;
 extern struct SERVER* main_server;
 
-volatile VBOOL window_closed = FALSE;
+volatile bool window_closed = FALSE;
 
 typedef struct {
    int keysym;
