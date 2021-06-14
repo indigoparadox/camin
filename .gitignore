@@ -2,3 +2,6 @@ bin
 obj
 camin.depend
 camin.layout
+Makefile
+CMakeFiles
+cmake_install.cmake
